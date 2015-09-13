@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>https://github.com/pr0nopoly/OpenPr0gramm/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/pr0nopoly/OpenPr0gramm</projectUrl>
+    <iconUrl>https://pr0gramm.com/media/pr0gramm-favicon.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>Initial Release</releaseNotes>
+    <copyright>Copyright 2015</copyright>
+    <tags>pr0gramm open api wrapper json http</tags>
+  </metadata>
+</package>
