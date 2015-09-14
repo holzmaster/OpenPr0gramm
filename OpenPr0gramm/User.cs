@@ -25,6 +25,9 @@ namespace OpenPr0gramm
         public bool IsAdmin { get; set; }
         [JsonProperty(PropertyName = "banned")]
         public bool IsBanned { get; set; }
+        [JsonProperty(PropertyName = "bannedUntil")]
+        [JsonConverter(typeof(UnixDateTimeConverter))]
+        public DateTime? BannedUntil { get; set; }
 
         public override string ToString() => $"{base.ToString()} (RegisteredSince: {RegisteredSince}, Score: {Score}, IsAdmin: {IsAdmin}, IsBanned: {IsBanned})";
     }
