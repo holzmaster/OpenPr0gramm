@@ -48,7 +48,7 @@ Der Rest sollte selbsterklärend sein. Sämtliche Funktionalität befindet sich 
 
 ## Nutzungsbestimmungen/Lizenz
 Zusätzlich zu den in der LICENSE-File angegebenen Bestimmungen gilt:
-- **Keine Kommerzielle Nutzung.**
+- **Keine kommerzielle Nutzung.**
 - Hole dir *vorher* die Erlaubnis der Seitenbetreiber, deine Anwendung zu entwickeln.
 Wenn du etwas vorhast, was nicht in Einklang mit den Nutzungsbestimmungen ist, kontaktiere mich (via pr0gramm/Email) und wir können drüber reden.
 
