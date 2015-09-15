@@ -38,7 +38,7 @@ namespace OpenPr0gramm
         private static RefitSettings _refitSettings = new RefitSettings
         {
             UrlParameterFormatter = new EnumsAsIntegersParameterFormatter(),
-            JsonSerializerSettings = new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() }
+            JsonSerializerSettings = new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver(), NullValueHandling = NullValueHandling.Ignore }
         };
 
         public Pr0grammApiClient()
