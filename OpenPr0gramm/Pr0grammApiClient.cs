@@ -9,7 +9,7 @@ namespace OpenPr0gramm
 {
     public class Pr0grammApiClient : IPr0grammApiClient
     {
-        internal const string OpenPr0grammVersion = "0.3.0"; // Also referenced in AssemblyInfo.cs
+        internal const string OpenPr0grammVersion = "0.3.1"; // Also referenced in AssemblyInfo.cs
 
         private const string ProtocolPrefix = "https://";
         private const string HostName = "pr0gramm.com";
