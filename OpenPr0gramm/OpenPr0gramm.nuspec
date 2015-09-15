@@ -11,7 +11,7 @@
     <iconUrl>https://pr0gramm.com/media/pr0gramm-favicon.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Adds missing fields</releaseNotes>
+    <releaseNotes>Fixes dependency issues.</releaseNotes>
     <copyright>Copyright 2015</copyright>
     <tags>pr0gramm open api wrapper json http</tags>
   </metadata>
