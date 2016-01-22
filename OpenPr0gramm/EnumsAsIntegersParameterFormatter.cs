@@ -11,18 +11,19 @@ namespace OpenPr0gramm
         {
             if (parameterValue == null)
                 return null;
-            var parameterType = Denullify(parameterInfo.ParameterType);
-            if (parameterType.IsEnum && parameterType == typeof(ItemFlags))
+            var info = Denullify(parameterInfo.ParameterType);
+            if (info.IsEnum && parameterInfo.ParameterType == typeof(ItemFlags))
                 return ((int)((ItemFlags)parameterValue)).ToString();
             return parameterValue.ToString();
         }
 
         // Just makes sure you have the generic type arg for Nullable<T>
-        static Type Denullify(Type type)
+        static TypeInfo Denullify(Type type)
         {
-            if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>))
-                return type.GetGenericArguments()[0];
-            return type;
+            var info = type.GetTypeInfo();
+            if (info.IsGenericType && info.GetGenericTypeDefinition() == typeof(Nullable<>))
+                return type.GenericTypeArguments[0].GetTypeInfo();
+            return info;
         }
     }
 }

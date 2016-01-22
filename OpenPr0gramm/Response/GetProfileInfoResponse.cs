@@ -4,7 +4,9 @@ using System.Collections.Generic;
 
 namespace OpenPr0gramm
 {
+#if FW
     [Serializable]
+#endif
     public class GetProfileInfoResponse : Pr0grammResponse
     {
         public User User { get; set; }

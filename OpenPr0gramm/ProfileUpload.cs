@@ -4,7 +4,9 @@ using System;
 
 namespace OpenPr0gramm
 {
+#if FW
     [Serializable]
+#endif
     public class ProfileUpload : IPr0grammItem
     {
         public int Id { get; set; }

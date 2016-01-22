@@ -4,7 +4,9 @@ using System;
 
 namespace OpenPr0gramm
 {
+#if FW
     [Serializable]
+#endif
     public class CommentUser : IPr0grammUser
     {
         public int Id { get; set; }
@@ -14,7 +16,9 @@ namespace OpenPr0gramm
         public override string ToString() => $"{Name} ({Id}; {Mark})";
     }
 
+#if FW
     [Serializable]
+#endif
     public class User : CommentUser
     {
         [JsonProperty(PropertyName = "registered")]
@@ -32,7 +36,9 @@ namespace OpenPr0gramm
         public override string ToString() => $"{base.ToString()} (RegisteredSince: {RegisteredSince}, Score: {Score}, IsAdmin: {IsAdmin}, IsBanned: {IsBanned})";
     }
 
+#if FW
     [Serializable]
+#endif
     public class FollowedUser : INamedPr0grammUser
     {
         public string ItemId { get; set; }
@@ -49,7 +55,9 @@ namespace OpenPr0gramm
         public DateTime FollowingSince { get; set; }
     }
 
+#if FW
     [Serializable]
+#endif
     public class InvitedUser : INamedPr0grammUser
     {
         public string Name { get; set; }
@@ -60,7 +68,9 @@ namespace OpenPr0gramm
         public DateTime RegisteredAt { get; set; }
     }
 
+#if FW
     [Serializable]
+#endif
     public class InvitingUser : INamedPr0grammUser
     {
         public string Name { get; set; }

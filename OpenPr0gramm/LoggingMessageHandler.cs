@@ -1,4 +1,4 @@
-﻿#if DEBUG
+﻿#if DEBUG && FW
 
 using System.Diagnostics;
 using System.Net.Http;
