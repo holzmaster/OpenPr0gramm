@@ -441,7 +441,7 @@ namespace OpenPr0gramm
         public Task<SuccessableResponse> Validate(string token)
         {
             if (string.IsNullOrWhiteSpace(token))
-                return Task.FromResult(new SuccessableResponse() { Success = false }); // TODO: Or throw exception?
+                return Task.FromResult(new SuccessableResponse { Success = false }); // TODO: Or throw exception?
             return Client.User.Validate(new TokenActionData(Client.GetCurrentNonce(), token));
         }
     }
