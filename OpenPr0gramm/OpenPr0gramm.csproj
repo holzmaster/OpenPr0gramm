@@ -126,7 +126,7 @@
     <Compile Include="Response\GetMessagesResponse.cs" />
     <Compile Include="Response\GetPaymentAddressResponse.cs" />
     <Compile Include="FormData\RequestEmailChangeData.cs" />
-    <Compile Include="SyncResponse.cs" />
+    <Compile Include="Response\SyncResponse.cs" />
     <Compile Include="ProfileUpload.cs" />
     <Compile Include="Tag.cs" />
     <Compile Include="Token.cs" />
