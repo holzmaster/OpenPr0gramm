@@ -10,6 +10,7 @@ namespace OpenPr0gramm.Tests
     public class ItemDownloaderTests
     {
         private IReadOnlyList<Item> _items;
+
         [OneTimeSetUp]
         public async Task GetItems()
         {
@@ -25,7 +26,7 @@ namespace OpenPr0gramm.Tests
 
             Assert.That(_items[0].ImageUrl, Does.EndWith(".png"));
             Assert.That(_items[1].ImageUrl, Does.EndWith(".webm"));
-            Assert.That(!string.IsNullOrWhiteSpace(_items[10].ImageUrl));
+            Assert.That(_items[10].ImageUrl, Is.Not.Null.And.Not.Empty);
         }
 
         [Test]
