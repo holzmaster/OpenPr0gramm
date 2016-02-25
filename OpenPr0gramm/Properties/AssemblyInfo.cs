@@ -17,5 +17,5 @@ using System.Runtime.InteropServices;
 
 [assembly: Guid("6954b2d6-928e-424a-89b1-74013006b24d")]
 
-[assembly: AssemblyVersion(OpenPr0gramm.Pr0grammApiClient.OpenPr0grammVersion)]
-[assembly: AssemblyFileVersion(OpenPr0gramm.Pr0grammApiClient.OpenPr0grammVersion)]
+[assembly: AssemblyVersion(OpenPr0gramm.ClientConstants.OpenPr0grammVersion)]
+[assembly: AssemblyFileVersion(OpenPr0gramm.ClientConstants.OpenPr0grammVersion)]

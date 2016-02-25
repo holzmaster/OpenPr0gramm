@@ -65,9 +65,9 @@
     <Compile Include="FormData\InviteData.cs" />
     <Compile Include="FormData\ResetPasswordData.cs" />
     <Compile Include="FormData\SendPasswordResetMailData.cs" />
+    <Compile Include="ItemDownloader.cs" />
     <Compile Include="ItemStatus.cs" />
     <Compile Include="ItemTagVote.cs" />
-    <Compile Include="Json\RelativeUrlConverter.cs" />
     <Compile Include="Json\UnixDateTimeConverter.cs" />
     <Compile Include="EnumsAsIntegersParameterFormatter.cs" />
     <Compile Include="FormData\BanData.cs" />
@@ -88,6 +88,7 @@
     <Compile Include="Item.cs" />
     <Compile Include="LoggingMessageHandler.cs" />
     <Compile Include="FormData\PostFormData.cs" />
+    <Compile Include="ClientConstants.cs" />
     <Compile Include="Pr0grammClient.cs" />
     <Compile Include="Pr0miumProducts.cs" />
     <Compile Include="ProfileBadge.cs" />

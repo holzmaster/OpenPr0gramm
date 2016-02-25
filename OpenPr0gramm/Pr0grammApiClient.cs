@@ -9,18 +9,7 @@ namespace OpenPr0gramm
 {
     public class Pr0grammApiClient : IPr0grammApiClient
     {
-        internal const string OpenPr0grammVersion = "0.3.3"; // Also referenced in AssemblyInfo.cs
-
-        private const string ProtocolPrefix = "https://";
-        private const string HostName = "pr0gramm.com";
-        private const string ApiBaseUrl = ProtocolPrefix + HostName + "/api";
-        private const string UserAgent = "OpenPr0gramm/" + OpenPr0grammVersion;
-
-        internal const string ThumbnailUrlPrefix = ProtocolPrefix + "thumb." + HostName;
-        internal const string ImageUrlPrefix = ProtocolPrefix + "img." + HostName;
-        internal const string FullUrlPrefix = ProtocolPrefix + "full." + HostName;
-        internal const string BadgeUrlPrefix = ProtocolPrefix + HostName + "/media/badges";
-        internal const string UserUrlPrefix = ProtocolPrefix + HostName + "/user";
+        private static string UserAgent = ClientConstants.GetUserAgent(nameof(Pr0grammApiClient));
 
         private readonly HttpClient _client;
         private readonly HttpClientHandler _handler;
@@ -52,7 +41,7 @@ namespace OpenPr0gramm
 #if DEBUG
             handler = new LoggingMessageHandler(handler);
 #endif
-            _client = new HttpClient(handler) { BaseAddress = new Uri(ApiBaseUrl) };
+            _client = new HttpClient(handler) { BaseAddress = new Uri(ClientConstants.ApiBaseUrl) };
             _client.DefaultRequestHeaders.UserAgent.ParseAdd(UserAgent);
             User = RestService.For<IPr0grammUserService>(_client, _refitSettings); // Done
             Tags = RestService.For<IPr0grammTagsService>(_client, _refitSettings); // Done
@@ -78,7 +67,7 @@ namespace OpenPr0gramm
             var container = _handler?.CookieContainer;
             if (container == null)
                 return null;
-            var cookies = container.GetCookies(new Uri(ProtocolPrefix + HostName + "/"));
+            var cookies = container.GetCookies(new Uri(ClientConstants.ProtocolPrefix + ClientConstants.HostName + "/"));
             var meCookie = cookies["me"]?.Value;
             if (meCookie == null)
                 return null;
