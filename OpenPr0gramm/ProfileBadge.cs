@@ -50,7 +50,7 @@ namespace OpenPr0gramm
                 {
                     var template = BadgeTemplates[DynamicBadgeType.Comments];
                     var description = string.Format(template.Description ?? string.Empty, ccn.Key);
-                    var link = $"{Pr0grammApiClient.UserUrlPrefix}/{userName}/comments/before/{newestCommentTime.ToUnixTime()}";
+                    var link = $"{ClientConstants.UserUrlPrefix}/{userName}/comments/before/{newestCommentTime.ToUnixTime()}";
                     return new DynamicProfileBadge(template.Image, description, link, newestCommentTime, template.Name, ccn.Value);
                 }
             }
@@ -67,14 +67,14 @@ namespace OpenPr0gramm
             var template = BadgeTemplates[DynamicBadgeType.Years];
 
             var description = string.Format(template.Description ?? string.Empty, diffYears, diffYears != 1 ? "e" : string.Empty);
-            var link = $"{Pr0grammApiClient.UserUrlPrefix}/{userName}";
+            var link = $"{ClientConstants.UserUrlPrefix}/{userName}";
             return new DynamicProfileBadge(template.Image, description, link, registeredSince, template.Name, diffYears.ToString());
         }
 
         private static Dictionary<DynamicBadgeType, BadgeTemplate> BadgeTemplates = new Dictionary<DynamicBadgeType, BadgeTemplate>
         {
-            [DynamicBadgeType.Comments] = new BadgeTemplate("comments", "Hat mehr als {0} Kommentare verfasst", null, null, Pr0grammApiClient.BadgeUrlPrefix + "/comments.png"),
-            [DynamicBadgeType.Years] = new BadgeTemplate("years", "Hat {0} Jahr{1} auf pr0gramm verschwendet", null, null, Pr0grammApiClient.BadgeUrlPrefix + "/years.png")
+            [DynamicBadgeType.Comments] = new BadgeTemplate("comments", "Hat mehr als {0} Kommentare verfasst", null, null, ClientConstants.BadgeUrlPrefix + "/comments.png"),
+            [DynamicBadgeType.Years] = new BadgeTemplate("years", "Hat {0} Jahr{1} auf pr0gramm verschwendet", null, null, ClientConstants.BadgeUrlPrefix + "/years.png")
         };
         private static readonly Dictionary<int, string> CommentCountNames = new Dictionary<int, string>
         {

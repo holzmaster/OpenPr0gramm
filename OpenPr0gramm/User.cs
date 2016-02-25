@@ -36,8 +36,8 @@ namespace OpenPr0gramm
     public class FollowedUser : INamedPr0grammUser
     {
         public string ItemId { get; set; }
+        /// <summary> Use the BaseAddress property of your HttpClient to prepend the protocol and host name. </summary>
         [JsonProperty(PropertyName = "thumb")]
-        [JsonConverter(typeof(ThumbnailUrlConverter))]
         public string ThumbnailUrl { get; set; }
         public string Name { get; set; }
         public UserMark Mark { get; set; }

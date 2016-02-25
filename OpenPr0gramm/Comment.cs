@@ -24,8 +24,8 @@ namespace OpenPr0gramm
     public class ProfileComment : Comment
     {
         public int ItemId { get; set; }
+        /// <summary> Use the BaseAddress property of your HttpClient to prepend the protocol and host name. </summary>
         [JsonProperty(PropertyName = "thumb")]
-        [JsonConverter(typeof(ThumbnailUrlConverter))]
         public string ThumbnailUrl { get; set; }
         public override string ToString() => "Profile: " + base.ToString();
     }
