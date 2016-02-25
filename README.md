@@ -8,8 +8,11 @@ Via NuGet:
 Install-Package OpenPr0gramm
 ```
 
+**Achtung:** Nach dem Installieren wird eine `RefitStubs.cs` zu dem Projekt hinzugefügt. Diese wird immer beim Kompilieren neu generiert. **Du darfst sie nicht löschen**, sonst findet der Generator nicht mehr und wirft einen Compilerfehler. Ich weiß, du brauchst sie eigentlich nicht, aber aufgrund einer bescheuerten Designentscheidung von Refit (siehe [die Issue dazu](https://github.com/paulcbetts/refit/issues/120)) geht das nicht anders. Wenn du gerade eine freie Minute hast, schau doch bei der [Issue](https://github.com/paulcbetts/refit/issues/120) vorbei und weise den Maintainer darauf hin, dass man da was machen sollte.
+
 ## Verwendung
 Die Library besteht aus 3 Schichten und ist an der JS-API der Webseite orientiert:
+
 1. Refit-Interface-HTTP-Wrapper
 2. Mapping der Rohdaten auf die Interface-Abstraktionen (`IPr0grammApiClient`)
 3. Wrapping von abstrahierten Parametern auf die Rohdaten (`Pr0grammClient`)
