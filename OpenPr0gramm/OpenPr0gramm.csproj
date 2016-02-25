@@ -65,6 +65,7 @@
     <Compile Include="FormData\InviteData.cs" />
     <Compile Include="FormData\ResetPasswordData.cs" />
     <Compile Include="FormData\SendPasswordResetMailData.cs" />
+    <Compile Include="ItemDownloader.cs" />
     <Compile Include="ItemStatus.cs" />
     <Compile Include="ItemTagVote.cs" />
     <Compile Include="Json\RelativeUrlConverter.cs" />
