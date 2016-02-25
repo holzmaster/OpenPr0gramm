@@ -10,18 +10,22 @@ namespace OpenPr0gramm
     {
         public IPr0grammItemsService ItemsService { get; }
 
+        public VideoOptions VideoOptions { get; set; }
+        public DownloadKind DownloadKind { get; set; }
+
         #region Ctors
 
         // TODO Evaluate
-        internal ItemDownloader(IPr0grammApiClient client)
-            : this(GetServiceFromClient(client))
+        internal ItemDownloader(IPr0grammApiClient client, DownloadKind whatToDownload)
+            : this(GetServiceFromClient(client), whatToDownload)
         { }
 
-        public ItemDownloader(IPr0grammItemsService itemsService)
+        public ItemDownloader(IPr0grammItemsService itemsService, DownloadKind downloadKind)
         {
             if (itemsService == null)
                 throw new ArgumentNullException(nameof(itemsService));
             ItemsService = itemsService;
+            DownloadKind = downloadKind;
         }
 
         #endregion
@@ -45,9 +49,18 @@ namespace OpenPr0gramm
         }
     }
 
-    [Flags]
-    enum DownloadOptions
+    public enum DownloadKind
     {
+        Thumbnail,
+        NormalImage,
+        LargestAvailable
+        // TODO consider
+        // , Source
+    }
 
+    public enum VideoOptions
+    {
+        Webm,
+        Mpeg
     }
 }
