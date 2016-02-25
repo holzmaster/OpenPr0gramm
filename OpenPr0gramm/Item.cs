@@ -42,7 +42,7 @@ namespace OpenPr0gramm
         public string GetMpegUrl()
         {
             Debug.Assert(GetItemType() == ItemType.Video);
-            return ImageUrl.Remove(ImageUrl.Length - ".webm".Length); // not thread safe, but who cares
+            return ImageUrl.Remove(ImageUrl.Length - ".webm".Length) + ".mpg"; // not thread safe, but who cares
         }
     }
 
