@@ -7,6 +7,6 @@ namespace OpenPr0gramm
     [Serializable]
     public class GetDetailsResponse : Pr0grammResponse
     {
-        public IReadOnlyList<ItemTagDetails> Tags { get; set; }
+        public IReadOnlyList<ItemTagDetails> Tags { get; private set; }
     }
 }

@@ -5,6 +5,6 @@ namespace OpenPr0gramm
     [Serializable]
     public class LogInResponse : SuccessableResponse
     {
-        public BanInfo Ban { get; set; }
+        public BanInfo Ban { get; private set; }
     }
 }

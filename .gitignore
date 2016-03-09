@@ -7,6 +7,8 @@
 *.userosscache
 *.sln.docstates
 
+**/JsonNet.PrivateSettersContractResolvers
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 

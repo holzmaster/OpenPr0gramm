@@ -7,9 +7,9 @@ namespace OpenPr0gramm
     public class Pr0grammResponse
     {
         [JsonConverter(typeof(UnixDateTimeConverter))]
-        public DateTime TS { get; set; }
-        public object Cache { get; set; }
-        public int RT { get; set; }
-        public int QC { get; set; }
+        public DateTime TS { get; private set; }
+        public object Cache { get; private set; }
+        public int RT { get; private set; }
+        public int QC { get; private set; }
     }
 }

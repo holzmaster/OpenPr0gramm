@@ -68,6 +68,7 @@
     <Compile Include="ItemDownloader.cs" />
     <Compile Include="ItemStatus.cs" />
     <Compile Include="ItemTagVote.cs" />
+    <Compile Include="JsonNet.PrivateSettersContractResolvers\PrivateSettersContractResolvers.cs" />
     <Compile Include="Json\UnixDateTimeConverter.cs" />
     <Compile Include="EnumsAsIntegersParameterFormatter.cs" />
     <Compile Include="FormData\BanData.cs" />

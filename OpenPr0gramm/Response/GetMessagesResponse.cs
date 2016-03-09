@@ -6,8 +6,8 @@ namespace OpenPr0gramm
     [Serializable]
     public class GetMessagesResponse<T> : Pr0grammResponse
     {
-        public IReadOnlyList<T> Messages { get; set; }
-        public bool HasOlder { get; set; }
-        public bool HasNewer { get; set; }
+        public IReadOnlyList<T> Messages { get; private set; }
+        public bool HasOlder { get; private set; }
+        public bool HasNewer { get; private set; }
     }
 }

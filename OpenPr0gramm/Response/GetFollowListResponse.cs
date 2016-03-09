@@ -6,6 +6,6 @@ namespace OpenPr0gramm
     [Serializable]
     public class GetFollowListResponse : Pr0grammResponse
     {
-        public IReadOnlyList<FollowedUser> List { get; set; }
+        public IReadOnlyList<FollowedUser> List { get; private set; }
     }
 }

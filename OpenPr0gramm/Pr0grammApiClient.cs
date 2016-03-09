@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using JsonNet.PrivateSettersContractResolvers;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Refit;
 using System;
@@ -27,7 +28,7 @@ namespace OpenPr0gramm
         private static RefitSettings _refitSettings = new RefitSettings
         {
             UrlParameterFormatter = new EnumsAsIntegersParameterFormatter(),
-            JsonSerializerSettings = new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver(), NullValueHandling = NullValueHandling.Ignore }
+            JsonSerializerSettings = new JsonSerializerSettings { ContractResolver = new PrivateSetterCamelCasePropertyNamesContractResolver(), NullValueHandling = NullValueHandling.Ignore }
         };
 
         public Pr0grammApiClient()
