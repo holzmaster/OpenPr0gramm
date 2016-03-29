@@ -5,7 +5,9 @@ using System.Diagnostics;
 
 namespace OpenPr0gramm
 {
+#if FW
     [Serializable]
+#endif
     public class Item : IPr0grammItem
     {
         public int Id { get; set; }

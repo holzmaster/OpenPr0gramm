@@ -5,7 +5,9 @@ using System;
 namespace OpenPr0gramm
 {
     // TODO: Check this
+#if FW
     [Serializable]
+#endif
     public abstract class Comment : IPr0grammComment
     {
         public int Id { get; set; }
@@ -20,7 +22,9 @@ namespace OpenPr0gramm
         public override string ToString() => $"{Id}, {Upvotes}/{Downvotes}, {Content}";
     }
 
+#if FW
     [Serializable]
+#endif
     public class ProfileComment : Comment
     {
         public int ItemId { get; set; }
@@ -30,7 +34,9 @@ namespace OpenPr0gramm
         public override string ToString() => "Profile: " + base.ToString();
     }
 
+#if FW
     [Serializable]
+#endif
     public class ItemComment : Comment
     {
         [JsonProperty(PropertyName = "parent")]

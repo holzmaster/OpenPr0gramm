@@ -4,7 +4,9 @@ using System.Collections.Generic;
 
 namespace OpenPr0gramm
 {
+#if FW
     [Serializable]
+#endif
     public class Tag : IPr0grammTag
     {
         public int Id { get; set; }
@@ -15,7 +17,9 @@ namespace OpenPr0gramm
         public override string ToString() => $"{Content} ({Id}, {Confidence})";
     }
 
+#if FW
     [Serializable]
+#endif
     public class ItemTagDetails : Tag
     {
         public string User { get; set; }

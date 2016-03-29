@@ -6,8 +6,8 @@
     <title>$title$</title>
     <authors>$author$</authors>
     <owners>$author$</owners>
-    <licenseUrl>https://github.com/pr0nopoly/OpenPr0gramm/blob/master/LICENSE</licenseUrl>
-    <projectUrl>https://github.com/pr0nopoly/OpenPr0gramm</projectUrl>
+    <licenseUrl>https://github.com/holzmaster/OpenPr0gramm/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/holzmaster/OpenPr0gramm</projectUrl>
     <iconUrl>https://pr0gramm.com/media/pr0gramm-favicon.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
