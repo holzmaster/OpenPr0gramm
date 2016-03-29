@@ -1,5 +1,6 @@
 ﻿{
   "dependencies": {
+    "JsonNet.PrivateSettersContractResolvers.Source": "0.1.0",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
     "refit": "2.4.1"
   },

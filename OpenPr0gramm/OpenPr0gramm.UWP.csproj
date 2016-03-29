@@ -7,7 +7,7 @@
     <ProjectGuid>{2253CE81-8EFC-485F-90BA-471EA93E2527}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OpenPr0gramm.UWP</RootNamespace>
+    <RootNamespace>OpenPr0gramm</RootNamespace>
     <AssemblyName>OpenPr0gramm.UWP</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
@@ -110,6 +110,7 @@
   <ItemGroup>
     <Compile Include="AccountInfo.cs" />
     <Compile Include="BanInfo.cs" />
+    <Compile Include="ClientConstants.cs" />
     <Compile Include="Comment.cs" />
     <Compile Include="DateTimeEx.cs" />
     <Compile Include="EnumsAsIntegersParameterFormatter.cs" />
@@ -139,10 +140,11 @@
     <Compile Include="FormData\VoteData.cs" />
     <Compile Include="InboxItem.cs" />
     <Compile Include="Item.cs" />
+    <Compile Include="ItemDownloader.cs" />
     <Compile Include="ItemFlags.cs" />
     <Compile Include="ItemStatus.cs" />
     <Compile Include="ItemTagVote.cs" />
-    <Compile Include="Json\RelativeUrlConverter.cs" />
+    <Compile Include="JsonNet.PrivateSettersContractResolvers\PrivateSettersContractResolvers.cs" />
     <Compile Include="Json\UnixDateTimeConverter.cs" />
     <Compile Include="LikedItem.cs" />
     <Compile Include="LoggingMessageHandler.cs" />
@@ -168,6 +170,7 @@
     <Compile Include="Response\LogInResponse.cs" />
     <Compile Include="Response\Pr0grammResponse.cs" />
     <Compile Include="Response\SuccessableResponse.cs" />
+    <Compile Include="Response\SyncResponse.cs" />
     <Compile Include="Response\TokenInfoResponse.cs" />
     <Compile Include="Response\TokenResponse.cs" />
     <Compile Include="Service\ChangePasswordData.cs" />
@@ -180,7 +183,6 @@
     <Compile Include="Service\IPr0grammProfileService.cs" />
     <Compile Include="Service\IPr0grammTagsService.cs" />
     <Compile Include="Service\IPr0grammUserService.cs" />
-    <Compile Include="SyncResponse.cs" />
     <Compile Include="Tag.cs" />
     <Compile Include="Token.cs" />
     <Compile Include="User.cs" />
@@ -188,6 +190,7 @@
     <Compile Include="Vote.cs" />
     <EmbeddedResource Include="Properties\OpenPr0gramm.UWP.rd.xml" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
