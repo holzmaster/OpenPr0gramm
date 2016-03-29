@@ -1,66 +1,17 @@
-{
-  "version": "2.0.0",
-  "title": "OpenPr0gramm",
-  "description": "Open implementation of the pr0gramm.com API",
-  "authors": [
-    "holzmaster"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/holzmaster/OpenPr0gramm.git"
-  },
-  "projectUrl": "https://github.com/holzmaster/OpenPr0gramm",
-  "licenseUrl": "https://github.com/holzmaster/OpenPr0gramm/blob/master/LICENSE",
-  "frameworks": {
-    "net45": {
-      "compilationOptions": {
-        "define": [
-          "FW",
-          "NET45"
-        ]
-      },
-      "frameworkAssemblies": {
-        "System.Net.Http": ""
-      }
-    },
-    "net46": {
-      "compilationOptions": {
-        "define": [
-          "FW",
-          "NET46"
-        ]
-      },
-      "frameworkAssemblies": {
-        "System.Net.Http": ""
-      }
-    },
-    "dotnet": {
-      "compilationOptions": {
-        "define": [
-          "NETPLATFORM"
-        ]
-      },
-      "dependencies": {
-        "Microsoft.CSharp": "4.0.0",
-        "System.Net.Http": "4.0.1-beta-23409"
-      }
-    },
-    "dnxcore50": {
-      "compilationOptions": {
-        "define": [
-          "DNXCORE"
-        ]
-      },
-      "dependencies": {
-        "Microsoft.CSharp": "4.0.0",
-        "System.Collections": "4.0.10",
-        "System.Linq": "4.0.0",
-        "System.Net.Http": "4.0.1-beta-23409"
-      }
-    }
-  },
+﻿{
   "dependencies": {
-    "Newtonsoft.Json": "6.0.5",
-    "refit": "2.3.0"
+    "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
+    "refit": "2.4.1"
+  },
+  "frameworks": {
+    "uap10.0": {}
+  },
+  "runtimes": {
+    "win10-arm": {},
+    "win10-arm-aot": {},
+    "win10-x86": {},
+    "win10-x86-aot": {},
+    "win10-x64": {},
+    "win10-x64-aot": {}
   }
 }
