@@ -11,7 +11,7 @@ namespace OpenPr0gramm
         { }
         public SuccessableResponse(bool success)
         {
-            Success = Success;
+            Success = success;
         }
     }
 }
