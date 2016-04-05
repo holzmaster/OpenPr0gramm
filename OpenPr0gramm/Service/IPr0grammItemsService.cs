@@ -37,7 +37,9 @@ namespace OpenPr0gramm
     }
 
     /*
+#if FW
     [Serializable]
+#endif
     public class UploadResponse
     {
         public string Key { get; set; }

@@ -39,7 +39,7 @@ namespace OpenPr0gramm
             HttpMessageHandler handler = _handler = new HttpClientHandler();
             if (cookieContainer != null)
                 _handler.CookieContainer = cookieContainer;
-#if DEBUG
+#if DEBUG && FW
             handler = new LoggingMessageHandler(handler);
 #endif
             _client = new HttpClient(handler) { BaseAddress = new Uri(ClientConstants.ApiBaseUrl) };

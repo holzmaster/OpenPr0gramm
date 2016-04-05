@@ -3,7 +3,9 @@ using System.Collections.Generic;
 
 namespace OpenPr0gramm
 {
+#if FW
     [Serializable]
+#endif
     public class GetItemsResponse : Pr0grammResponse
     {
         public bool AtEnd { get; private set; }
