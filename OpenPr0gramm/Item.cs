@@ -46,6 +46,10 @@ namespace OpenPr0gramm
             Debug.Assert(GetItemType() == ItemType.Video);
             return ImageUrl.Remove(ImageUrl.Length - ".webm".Length) + ".mpg"; // not thread safe, but who cares
         }
+
+        public string GetAbsoluteThumbnailUrl(bool secure) => ClientConstants.GetThumbnailUrlPrefix(secure) + "/" + ThumbnailUrl;
+        public string GetAbsoluteFullSizeUrl(bool secure) => FullSizeUrl == null ? GetAbsoluteImageUrl(secure) : ClientConstants.GetFullSizeUrlPrefix(secure) + "/" + FullSizeUrl;
+        public string GetAbsoluteImageUrl(bool secure) => ClientConstants.GetImageUrlPrefix(secure) + "/" + ImageUrl;
     }
 
     public enum ItemType

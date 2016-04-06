@@ -22,7 +22,7 @@ namespace OpenPr0gramm
 
         internal static string GetImageUrlPrefix(bool secure) => GetPrefix(secure) + "img." + HostName;
         internal static string GetThumbnailUrlPrefix(bool secure) => GetPrefix(secure) + "thumb." + HostName;
-        internal static string GetFullUrlPrefix(bool secure) => GetPrefix(secure) + "full." + HostName;
+        internal static string GetFullSizeUrlPrefix(bool secure) => GetPrefix(secure) + "full." + HostName;
 
         internal const string BadgeUrlPrefix = ProtocolPrefix + HostName + "/media/badges";
         internal const string UserUrlPrefix = ProtocolPrefix + HostName + "/user";

@@ -104,7 +104,7 @@ namespace OpenPr0gramm
                 case DownloadKind.NormalImage:
                     return ClientConstants.GetImageUrlPrefix(useHttps);
                 case DownloadKind.LargestAvailable:
-                    return ClientConstants.GetFullUrlPrefix(useHttps);
+                    return ClientConstants.GetFullSizeUrlPrefix(useHttps);
                 default:
                     throw new InvalidOperationException();
             }
