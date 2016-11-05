@@ -15,7 +15,7 @@ namespace OpenPr0gramm
         Task<ChangeUserDataResponse> ChangePassword([Body(BodySerializationMethod.UrlEncoded)]ChangePasswordData data);
 
         [Get("/user/followlist")]
-        Task<FollowedUser> GetFollowList(ItemFlags flags);
+        Task<GetFollowListResponse> GetFollowList(ItemFlags flags);
 
         [Get("/user/info")]
         Task<GetUserInfoResponse> GetInfo();
