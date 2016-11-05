@@ -57,7 +57,7 @@ namespace OpenPr0gramm
         Task<ChangeUserDataResponse> SetSiteSettings([Body(BodySerializationMethod.UrlEncoded)]SiteSettingsData data);
 
         [Get("/user/sync")]
-        Task<SyncResponse> Sync(int lastId);
+        Task<SyncResponse> Sync(int offset);
 
         [Post("/user/validate")]
         Task<SuccessableResponse> Validate([Body(BodySerializationMethod.UrlEncoded)]TokenActionData data);

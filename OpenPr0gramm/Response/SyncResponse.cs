@@ -6,6 +6,7 @@ namespace OpenPr0gramm
     {
         public int InboxCount { get; private set; }
         public IReadOnlyList<object> Log { get; private set; } // TODO
-        public int LastId { get; private set; }
+        public int LogLength { get; private set; }
+        public int Score { get; private set; }
     }
 }
