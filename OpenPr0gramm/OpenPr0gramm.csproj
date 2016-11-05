@@ -97,7 +97,7 @@
     <Compile Include="Response\TokenInfoResponse.cs" />
     <Compile Include="Response\TokenResponse.cs" />
     <Compile Include="Response\SuccessableResponse.cs" />
-    <Compile Include="Service\ChangePasswordData.cs" />
+    <Compile Include="FormData\ChangePasswordData.cs" />
     <Compile Include="Service\IPr0grammBitcoinService.cs" />
     <Compile Include="Service\IPr0grammCommentsService.cs" />
     <Compile Include="Service\IPr0grammInboxService.cs" />
