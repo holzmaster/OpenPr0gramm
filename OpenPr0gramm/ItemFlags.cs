@@ -8,6 +8,8 @@ namespace OpenPr0gramm
         SFW = 1,
         NSFW = 2,
         NSFL = 4,
-        All = SFW | NSFW | NSFL
+        NSFP = 8,
+        AllPublic = SFW | NSFW | NSFL,
+        All = AllPublic | NSFP
     }
 }
