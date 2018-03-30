@@ -118,6 +118,7 @@
     <Compile Include="FormData\BanData.cs" />
     <Compile Include="FormData\ChangeAccountSettingData.cs" />
     <Compile Include="FormData\ChangeEmailData.cs" />
+    <Compile Include="FormData\ChangePasswordData.cs" />
     <Compile Include="FormData\ContactData.cs" />
     <Compile Include="FormData\DeleteCommentData.cs" />
     <Compile Include="FormData\DeleteItemData.cs" />
@@ -173,7 +174,6 @@
     <Compile Include="Response\SyncResponse.cs" />
     <Compile Include="Response\TokenInfoResponse.cs" />
     <Compile Include="Response\TokenResponse.cs" />
-    <Compile Include="Service\ChangePasswordData.cs" />
     <Compile Include="Service\IPr0grammBitcoinService.cs" />
     <Compile Include="Service\IPr0grammCommentsService.cs" />
     <Compile Include="Service\IPr0grammContactService.cs" />

@@ -336,7 +336,7 @@ namespace OpenPr0gramm
                 throw new ArgumentNullException(nameof(newPassword));
             return Client.User.ChangePassword(new ChangePasswordData(Client.GetCurrentNonce(), currentPassword, newPassword));
         }
-        public Task<FollowedUser> GetFollowList(ItemFlags flags) => Client.User.GetFollowList(flags);
+        public Task<GetFollowListResponse> GetFollowList(ItemFlags flags) => Client.User.GetFollowList(flags);
         public Task<GetUserInfoResponse> GetInfo() => Client.User.GetInfo();
         public Task<ChangeUserDataResponse> Invite(string email)
         {
