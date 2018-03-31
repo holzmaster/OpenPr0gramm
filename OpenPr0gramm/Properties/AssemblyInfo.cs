@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("holzmaster")]
 [assembly: AssemblyProduct("OpenPr0gramm")]
-[assembly: AssemblyCopyright("Copyright © holzmaster 2015")]
+[assembly: AssemblyCopyright("Copyright © holzmaster 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
