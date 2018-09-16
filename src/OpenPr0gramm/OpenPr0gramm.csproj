@@ -18,6 +18,7 @@
     <PackageLicenseUrl>https://github.com/holzmaster/OpenPr0gramm/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/holzmaster/OpenPr0gramm</PackageProjectUrl>
     <RepositoryUrl>https://github.com/holzmaster/OpenPr0gramm.git</RepositoryUrl>
+    <PackageTags>pr0gramm open api wrapper json http</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
