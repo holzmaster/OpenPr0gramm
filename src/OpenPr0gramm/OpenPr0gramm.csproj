@@ -14,6 +14,7 @@
     <PackageId>OpenPr0gramm</PackageId>
     <NeutralLanguage>en</NeutralLanguage>
     <Description>Open source .NET API for pr0gramm</Description>
+    <PackageIconUrl>https://pr0gramm.com/media/pr0gramm-favicon.png</PackageIconUrl>
     <PackageLicenseUrl>https://github.com/holzmaster/OpenPr0gramm/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/holzmaster/OpenPr0gramm</PackageProjectUrl>
     <RepositoryUrl>https://github.com/holzmaster/OpenPr0gramm.git</RepositoryUrl>
