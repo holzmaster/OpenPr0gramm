@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenPr0gramm.UWP", "OpenPr0gramm\OpenPr0gramm.UWP.csproj", "{2253CE81-8EFC-485F-90BA-471EA93E2527}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenPr0gramm", "src\OpenPr0gramm\OpenPr0gramm.csproj", "{61FBF235-F36B-46CD-8E1F-8142AA001355}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenPr0gramm", "OpenPr0gramm\OpenPr0gramm.csproj", "{61FBF235-F36B-46CD-8E1F-8142AA001355}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenPr0gramm.Tests", "OpenPr0gramm.Tests\OpenPr0gramm.Tests.csproj", "{DD756BA6-655B-4106-955F-40079EC089D3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenPr0gramm.Tests", "src\OpenPr0gramm.Tests\OpenPr0gramm.Tests.csproj", "{DD756BA6-655B-4106-955F-40079EC089D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
