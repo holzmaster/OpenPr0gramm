@@ -1,4 +1,4 @@
-# OpenPr0gramm [![Travis Build Status](https://travis-ci.com/holzmaster/OpenPr0gramm.svg?branch=master)](https://travis-ci.com/holzmaster/OpenPr0gramm) [![AppVeyor Build status](https://ci.appveyor.com/api/projects/status/uckh08ose23rap7l?svg=true)](https://ci.appveyor.com/project/holzmaster/openpr0gramm) ![NuGet Version](https://img.shields.io/nuget/v/Nuget.Core.svg) [![GPL-3.0 License](https://img.shields.io/github/license/holzmaster/OpenPr0gramm.svg)](https://github.com/holzmaster/OpenPr0gramm/blob/master/LICENSE)
+# OpenPr0gramm [![Travis Build Status](https://travis-ci.com/holzmaster/OpenPr0gramm.svg?branch=master)](https://travis-ci.com/holzmaster/OpenPr0gramm) [![AppVeyor Build status](https://ci.appveyor.com/api/projects/status/uckh08ose23rap7l?svg=true)](https://ci.appveyor.com/project/holzmaster/openpr0gramm) ![NuGet Version](https://img.shields.io/nuget/v/OpenPr0gramm.svg) [![GPL-3.0 License](https://img.shields.io/github/license/holzmaster/OpenPr0gramm.svg)](https://github.com/holzmaster/OpenPr0gramm/blob/master/LICENSE)
 Eine quelloffene .NET-Implementierung für das pr0gramm.
 
 ## Installation
