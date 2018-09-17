@@ -11,6 +11,9 @@ install:
 script:
   - dotnet build -c Release
 
+test:
+  - dotnet test src/OpenPr0gramm.Tests
+
 deploy:
   - provider: script
     skip-cleanup: true
