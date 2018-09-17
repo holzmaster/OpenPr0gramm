@@ -1,4 +1,4 @@
-# OpenPr0gramm
+# OpenPr0gramm [![Travis Build Status](https://travis-ci.com/holzmaster/OpenPr0gramm.svg?branch=master)](https://travis-ci.com/holzmaster/OpenPr0gramm)
 Eine quelloffene .NET-Implementierung für das pr0gramm.
 
 ## Installation
