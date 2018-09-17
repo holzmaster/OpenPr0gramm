@@ -39,12 +39,7 @@ namespace OpenPr0gramm
             var url = ImageUrl;
             if (string.IsNullOrWhiteSpace(url))
                 return ItemType.Unknown;
-            return url.EndsWith(".webm", StringComparison.OrdinalIgnoreCase) ? ItemType.Video : ItemType.Image;
-        }
-        public string GetMpegUrl()
-        {
-            Debug.Assert(GetItemType() == ItemType.Video);
-            return ImageUrl.Remove(ImageUrl.Length - ".webm".Length) + ".mpg"; // not thread safe, but who cares
+            return url.EndsWith(".mp4", StringComparison.OrdinalIgnoreCase) ? ItemType.Video : ItemType.Image;
         }
 
         public string GetAbsoluteThumbnailUrl(bool secure) => ClientConstants.GetThumbnailUrlPrefix(secure) + "/" + ThumbnailUrl;

@@ -10,7 +10,6 @@ namespace OpenPr0gramm
     {
         private static string UserAgent = ClientConstants.GetUserAgent(nameof(ItemDownloader));
 
-        public VideoOptions VideoOptions { get; set; }
         public DownloadKind DownloadKind { get; set; }
         public bool UsingHttps { get; }
 
@@ -37,7 +36,6 @@ namespace OpenPr0gramm
 
             // save class members to locals since they can change during method execution
             var kind = DownloadKind;
-            var videoOptions = VideoOptions;
 
             if (!Enum.IsDefined(typeof(DownloadKind), kind)) // TODO consider remove since all code paths throw exceptions anyways
                 throw new InvalidOperationException();
@@ -63,18 +61,8 @@ namespace OpenPr0gramm
                             throw new InvalidOperationException();
                     }
                 case ItemType.Video:
-                    // if it's a webm, consider downloading an mpeg instead.
-                    // DownloadKind doesn't matter here, since there is only one video quality
-                    switch (videoOptions)
-                    {
-                        case VideoOptions.Webm:
-                            return HttpClient.GetStreamAsync(item.ImageUrl); // webm urls are always in the "image" field
-                        case VideoOptions.Mpeg:
-                            var mpegUrl = item.GetMpegUrl();
-                            return HttpClient.GetStreamAsync(mpegUrl);
-                        default:
-                            throw new InvalidOperationException();
-                    }
+                    // pr0gramm used to offer webms and mpegs. It seems that they only ave MP4.
+                    return HttpClient.GetStreamAsync(item.ImageUrl); // webm urls are always in the "image" field
                 default:
                     throw new InvalidOperationException();
             }
@@ -119,11 +107,5 @@ namespace OpenPr0gramm
         NormalImage,
         LargestAvailable
         // TODO consider Source
-    }
-
-    public enum VideoOptions
-    {
-        Webm,
-        Mpeg
     }
 }

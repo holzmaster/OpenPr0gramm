@@ -15,7 +15,17 @@ namespace OpenPr0gramm.Tests
         public async Task GetItems()
         {
             var cl = new Pr0grammClient();
-            var res = await cl.Item.GetItemsOlder(ItemFlags.SFW, ItemStatus.Promoted, false, null, null, null, false, 1196866).ConfigureAwait(false);
+            var res = await cl.Item.GetItemsOlder(
+                ItemFlags.SFW,
+                ItemStatus.New,
+                false,
+                null,
+                null,
+                null,
+                false,
+                1196866
+            ).ConfigureAwait(false);
+
             Assert.NotNull(res);
             Assert.That(res.Items, Is.Not.Empty);
             Assert.AreEqual(120, res.Items.Count);
@@ -24,15 +34,19 @@ namespace OpenPr0gramm.Tests
 
             _items = res.Items;
 
-            Assert.That(_items[0].ImageUrl, Does.EndWith(".png"));
-            Assert.That(_items[1].ImageUrl, Does.EndWith(".webm"));
+            // foreach (var item in _items)
+            //     System.Console.Error.WriteLine(item.ImageUrl);
+
+            Assert.That(_items[0].ImageUrl, Does.EndWith(".jpg"));
+            Assert.That(_items[1].ImageUrl, Does.EndWith(".jpg"));
+            Assert.That(_items[2].ImageUrl, Does.EndWith(".mp4"));
             Assert.That(_items[10].ImageUrl, Is.Not.Null.And.Not.Empty);
         }
 
         [Test]
         public async Task ThumbnailTest()
         {
-            const string expected = "http://thumb.pr0gramm.com/2016/02/25/c39ca11598127046.jpg";
+            const string expected = "http://thumb.pr0gramm.com/2016/02/25/4d99cd2f33f62273.jpg";
 
             var item = _items[0];
 
@@ -49,7 +63,7 @@ namespace OpenPr0gramm.Tests
         [Test]
         public async Task ImageTest()
         {
-            const string expected = "http://img.pr0gramm.com/2016/02/25/c39ca11598127046.png";
+            const string expected = "http://img.pr0gramm.com/2016/02/25/4d99cd2f33f62273.jpg";
 
             var item = _items[0];
 
@@ -66,9 +80,9 @@ namespace OpenPr0gramm.Tests
         [Test]
         public async Task FullSizeTest()
         {
-            const string expected = "http://full.pr0gramm.com/2016/02/24/1db2dd03de191f02.jpg";
+            const string expected = "http://full.pr0gramm.com/2016/02/25/4d99cd2f33f62273.jpg";
 
-            var item = _items[10];
+            var item = _items[0];
 
             var expectedFile = await DownloadExpectedFile(expected);
             using (var dl = new ItemDownloader(DownloadKind.LargestAvailable, true))
@@ -82,35 +96,16 @@ namespace OpenPr0gramm.Tests
 
 
         [Test]
-        public async Task WebmTest()
+        public async Task Mp4Test()
         {
-            const string expected = "http://img.pr0gramm.com/2016/02/25/e140680dcdb3daa4.webm";
+            const string expected = "http://img.pr0gramm.com/2016/02/25/956743d57e310de0.mp4";
 
-            var item = _items[1];
+            var item = _items[2];
             Assert.NotNull(item);
 
             var expectedFile = await DownloadExpectedFile(expected);
             using (var dl = new ItemDownloader(DownloadKind.NormalImage, true))
             {
-                var actualStream = await dl.DownloadItemAsync(item);
-                var actualFile = await StreamToFile(actualStream);
-
-                CompareFiles(expectedFile, actualFile);
-            }
-        }
-        [Test]
-        public async Task MpegTest()
-        {
-            const string expected = "http://img.pr0gramm.com/2016/02/25/e140680dcdb3daa4.mpg";
-
-            var item = _items[1];
-            Assert.NotNull(item);
-
-            var expectedFile = await DownloadExpectedFile(expected);
-            using (var dl = new ItemDownloader(DownloadKind.NormalImage, true))
-            {
-                dl.VideoOptions = VideoOptions.Mpeg;
-
                 var actualStream = await dl.DownloadItemAsync(item);
                 var actualFile = await StreamToFile(actualStream);
 
