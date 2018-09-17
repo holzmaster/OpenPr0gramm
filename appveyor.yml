@@ -23,4 +23,4 @@ test_script:
   - dotnet test "src\OpenPr0gramm.Tests" -c %CONFIGURATION%
 
 artifacts:
-  - path: src\OpenPr0gramm\bin\Release\*.nupkg
+  - path: src\OpenPr0gramm\bin\Any CPU\Release\*.nupkg
