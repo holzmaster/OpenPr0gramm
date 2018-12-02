@@ -56,4 +56,4 @@ Zusätzlich zu den in der LICENSE-File angegebenen Bestimmungen gilt:
 Wenn du etwas vorhast, was nicht in Einklang mit den Nutzungsbestimmungen ist, kontaktiere mich (via pr0gramm/Email) und wir können drüber reden.
 
 ## Bugs
-Es kann sein, dass bei der Serialisierung bestimmte Felder aufgrund von Typos oder Brainlags bei der Implementierung nicht richtig gemappt werden. Wenn dir sowas auffällt, kontaktiere mich bitte, poste eine Issue oder fix es selbst und stelle einen Pull-Request.
+Es kann sein, dass bei der Serialisierung bestimmte Felder aufgrund von Typos oder Brainlags bei der Implementierung nicht richtig gemappt werden. Wenn dir sowas auffällt, kontaktiere mich bitte, poste eine Issue, oder fix es selbst und stelle einen Pull-Request.
