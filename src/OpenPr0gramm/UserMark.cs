@@ -12,6 +12,9 @@ namespace OpenPr0gramm
         Fliesentisch = 6,
         LebendeLegende = 7,
         Wichtel = 8,
-        EdlerSpender = 9
+        EdlerSpender = 9,
+        Mittelaltschwuchtel = 10,
+        AltModerator = 11,
+        CommunityHelfer = 12,
     }
 }
