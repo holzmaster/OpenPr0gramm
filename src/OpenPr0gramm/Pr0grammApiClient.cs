@@ -13,7 +13,7 @@ namespace OpenPr0gramm
         private static string UserAgent = ClientConstants.GetUserAgent(nameof(Pr0grammApiClient));
 
         private readonly HttpClient _client;
-        private readonly HttpClientHandler _handler;
+        private readonly Http2CustomHandler _handler;
 
         public IPr0grammUserService User { get; }
         public IPr0grammTagsService Tags { get; }
@@ -36,9 +36,17 @@ namespace OpenPr0gramm
         { }
         public Pr0grammApiClient(CookieContainer cookieContainer)
         {
-            HttpMessageHandler handler = _handler = new HttpClientHandler();
+            var handler = _handler = new Http2CustomHandler();
+            _handler.CookieUsePolicy = CookieUsePolicy.UseSpecifiedCookieContainer;
             if (cookieContainer != null)
+            {
                 _handler.CookieContainer = cookieContainer;
+            }
+            else if(_handler.CookieContainer == null)
+            {
+                _handler.CookieContainer = new CookieContainer();
+              
+            }
 #if DEBUG && FW
             handler = new LoggingMessageHandler(handler);
 #endif
@@ -108,7 +116,7 @@ namespace OpenPr0gramm
         public string N { get; set; }
         public string Id { get; set; }
         public bool A { get; set; }
-        public long pp { get; set; }
+        public string pp { get; set; }
         public bool Paid { get; set; }
     }
 
