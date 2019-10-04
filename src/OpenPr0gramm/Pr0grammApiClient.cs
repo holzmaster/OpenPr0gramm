@@ -5,15 +5,15 @@ using Refit;
 using System;
 using System.Net;
 using System.Net.Http;
+using System.Security.Cryptography.X509Certificates;
 
 namespace OpenPr0gramm
 {
     public class Pr0grammApiClient : IPr0grammApiClient
     {
-        private static string UserAgent = ClientConstants.GetUserAgent(nameof(Pr0grammApiClient));
-
         private readonly HttpClient _client;
-        private readonly Http2CustomHandler _handler;
+        private readonly HttpClientHandler _clientHandler;
+        private static readonly string UserAgent = ClientConstants.GetUserAgent(nameof(Pr0grammApiClient));
 
         public IPr0grammUserService User { get; }
         public IPr0grammTagsService Tags { get; }
@@ -36,22 +36,10 @@ namespace OpenPr0gramm
         { }
         public Pr0grammApiClient(CookieContainer cookieContainer)
         {
-            var handler = _handler = new Http2CustomHandler();
-            _handler.CookieUsePolicy = CookieUsePolicy.UseSpecifiedCookieContainer;
-            if (cookieContainer != null)
-            {
-                _handler.CookieContainer = cookieContainer;
-            }
-            else if(_handler.CookieContainer == null)
-            {
-                _handler.CookieContainer = new CookieContainer();
-              
-            }
-#if DEBUG && FW
-            handler = new LoggingMessageHandler(handler);
-#endif
-            _client = new HttpClient(handler) { BaseAddress = new Uri(ClientConstants.ApiBaseUrl) };
+            _clientHandler = new HttpClientHandler();
+            _client = new HttpClient(_clientHandler) { BaseAddress = new Uri(ClientConstants.ApiBaseUrl) };
             _client.DefaultRequestHeaders.UserAgent.ParseAdd(UserAgent);
+
             User = RestService.For<IPr0grammUserService>(_client, _refitSettings); // Done
             Tags = RestService.For<IPr0grammTagsService>(_client, _refitSettings); // Done
             Profile = RestService.For<IPr0grammProfileService>(_client, _refitSettings); // Done
@@ -63,7 +51,7 @@ namespace OpenPr0gramm
             Bitcoin = RestService.For<IPr0grammBitcoinService>(_client, _refitSettings); // Done
         }
 
-        public CookieContainer GetCookies() => _handler?.CookieContainer;
+        public CookieContainer GetCookies() => _clientHandler?.CookieContainer;
 
         public string GetCurrentNonce()
         {
@@ -73,7 +61,7 @@ namespace OpenPr0gramm
 
         public string GetCurrentSessionId()
         {
-            var container = _handler?.CookieContainer;
+            var container = _clientHandler?.CookieContainer;
             if (container == null)
                 return null;
             var cookies = container.GetCookies(new Uri(ClientConstants.ProtocolPrefix + ClientConstants.HostName + "/"));
@@ -95,7 +83,7 @@ namespace OpenPr0gramm
             {
                 if (disposing)
                 {
-                    _handler.Dispose();
+                    _clientHandler.Dispose();
                     _client.Dispose();
                 }
                 disposedValue = true;
