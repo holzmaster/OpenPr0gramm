@@ -8,8 +8,11 @@ namespace OpenPr0gramm.Json
         public override bool CanConvert(Type objectType) => objectType == typeof(DateTime);
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            long t = reader.Value is long ? (long)reader.Value : long.Parse((string)reader.Value);
-            return DateTimeEx.FromUnixToLocalTime(t);
+            var t = reader.Value is long value
+                ? value
+                : long.Parse((string)reader.Value);
+
+            return DateTimeOffset.FromUnixTimeSeconds(t).DateTime;
         }
 
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
