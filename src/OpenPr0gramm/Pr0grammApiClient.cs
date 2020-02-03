@@ -36,7 +36,11 @@ namespace OpenPr0gramm
         { }
         public Pr0grammApiClient(CookieContainer cookieContainer)
         {
-            _clientHandler = new HttpClientHandler();
+            _clientHandler = new HttpClientHandler
+            {
+                CookieContainer = cookieContainer ?? new CookieContainer()
+            };
+            
             _client = new HttpClient(_clientHandler) { BaseAddress = new Uri(ClientConstants.ApiBaseUrl) };
             _client.DefaultRequestHeaders.UserAgent.ParseAdd(UserAgent);
 
