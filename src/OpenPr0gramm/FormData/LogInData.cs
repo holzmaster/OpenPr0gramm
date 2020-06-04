@@ -13,13 +13,13 @@ namespace OpenPr0gramm
         public string Token { get; set; }
         [AliasAs("captcha")]
         public string Captcha { get; set; }
-        public LogInData(string name, string password, string token, string captcha)
+        public LogInData(string name, string password, string captchaToken, string captchaSolution)
         {
             Debug.Assert(!string.IsNullOrWhiteSpace(name));
             Name = name;
             Password = password;
-            Token = token;
-            Captcha = captcha;
+            Token = captchaToken;
+            Captcha = captchaSolution;
         }
     }
 }

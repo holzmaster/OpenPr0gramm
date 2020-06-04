@@ -42,7 +42,7 @@ namespace OpenPr0gramm
         Task<Pr0grammResponse> LogOut([Body(BodySerializationMethod.UrlEncoded)]LogOutData data);
 
         [Post("/user/captcha")]
-        Task<CaptchaResponse> Captcha();
+        Task<CaptchaResponse> RequestCaptcha();
 
         [Post("/user/redeemtoken")]
         Task<TokenResponse> RedeemToken([Body(BodySerializationMethod.UrlEncoded)]TokenActionData data);
