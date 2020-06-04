@@ -388,15 +388,25 @@ namespace OpenPr0gramm
                 throw new ArgumentNullException(nameof(token));
             return Client.User.LoadPaymentToken(new TokenActionData(Client.GetCurrentNonce(), token));
         }
-        public Task<LogInResponse> LogIn(string name, string password)
+
+        public Task<LogInResponse> LogIn(string name, string password, string token, string captcha)
         {
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentNullException(nameof(name));
             if (string.IsNullOrEmpty(password))
                 throw new ArgumentNullException(nameof(password));
-            return Client.User.LogIn(new LogInData(name, password));
+            if (string.IsNullOrEmpty(token))
+                throw new ArgumentNullException(nameof(token));
+            if (string.IsNullOrEmpty(captcha))
+                throw new ArgumentNullException(nameof(captcha));
+            return Client.User.LogIn(new LogInData(name, password, token, captcha));
         }
         public Task<Pr0grammResponse> LogOut() => Client.User.LogOut(new LogOutData(Client.GetCurrentNonce(), Client.GetCurrentSessionId()));
+
+        public Task<CaptchaResponse> Captcha()
+        {
+            return Client.User.Captcha();
+        }
         public Task<TokenResponse> RedeemToken(string token)
         {
             if (string.IsNullOrWhiteSpace(token))
