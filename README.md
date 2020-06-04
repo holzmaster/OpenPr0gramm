@@ -22,7 +22,10 @@ Für den normalen Umgang sollte der 3. Layer reichen. Wenn du willst, kannst du 
 Hier etwas Beispielcode:
 ```C#
 var client = new Pr0grammClient();
-var loginRes = await client.User.LogIn("user", "password");
+
+var captchaRes = await client.User.RequestCaptcha();
+var captchaImage = captchaRes.GetCaptchaImageBytes(); 
+var loginRes = await client.User.LogIn("user", "password", captchaRes.Token, "aaaaa");
 if(!loginRes.Success)
 {
 	if(loginRes.Ban != null && loginRes.Ban.IsBanned)
