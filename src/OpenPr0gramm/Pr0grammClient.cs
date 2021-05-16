@@ -169,10 +169,9 @@ namespace OpenPr0gramm
         public Task<GetInboxOverviewResponse> GetOverview() => Client.Inbox.GetOverview();
         public Task<GetInboxCommentResponse> GetComments() => Client.Inbox.GetComments();
         public Task<GetInboxNotificationResponse> GetNotifications() => Client.Inbox.GetNotifications();
-        public Task<GetInboxConversationResponse> GetConversations() => Client.Inbox.GetConversations();
-        public Task<GetInboxPrivateMessageResponse> GetMessages(string with, long? older) =>
+        public Task<GetInboxConversationResponse> GetConversations(long? older = null) => Client.Inbox.GetConversations(older);
+        public Task<GetInboxPrivateMessageResponse> GetMessages(string with, long? older = null) =>
             Client.Inbox.GetMessages(with, older);
-        public Task<GetInboxBlockedUserResponse> GetBlockedUsers() => Client.Inbox.GetBlockedUsers();
 
         public Task<Pr0grammResponse> SendMessage(IPr0grammUser recipient, string message)
         {

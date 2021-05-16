@@ -37,7 +37,7 @@ namespace OpenPr0gramm.Inbox.Model
 
         public string Owner { get; set; }
 
-        public UserMark OwnerMark { get; set; }
+        public UserMark? OwnerMark { get; set; }
 
         public string Keyword { get; set; }
 

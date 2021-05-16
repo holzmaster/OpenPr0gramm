@@ -7,5 +7,6 @@
     {
         Message,
         Comment,
+        Notification,
     }
 }

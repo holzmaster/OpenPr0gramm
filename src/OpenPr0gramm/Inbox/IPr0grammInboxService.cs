@@ -19,13 +19,10 @@ namespace OpenPr0gramm.Inbox
         //TODO [Get("/inbox/follows")]
 
         [Get("/inbox/conversations")]
-        Task<GetInboxConversationResponse> GetConversations();
+        Task<GetInboxConversationResponse> GetConversations(long? older);
 
         [Get("/inbox/messages")]
         Task<GetInboxPrivateMessageResponse> GetMessages(string with, long? older);
-
-        [Get("/inbox/blocklist")]
-        Task<GetInboxBlockedUserResponse> GetBlockedUsers();
 
         [Post("/inbox/post")]
         Task<Pr0grammResponse> PostMessage([Body(BodySerializationMethod.UrlEncoded)]PrivateMessageData data);
