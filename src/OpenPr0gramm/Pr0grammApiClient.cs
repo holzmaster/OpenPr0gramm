@@ -6,6 +6,7 @@ using System;
 using System.Net;
 using System.Net.Http;
 using System.Security.Cryptography.X509Certificates;
+using OpenPr0gramm.Inbox;
 
 namespace OpenPr0gramm
 {
@@ -40,7 +41,7 @@ namespace OpenPr0gramm
             {
                 CookieContainer = cookieContainer ?? new CookieContainer()
             };
-            
+
             _client = new HttpClient(_clientHandler) { BaseAddress = new Uri(ClientConstants.ApiBaseUrl) };
             _client.DefaultRequestHeaders.UserAgent.ParseAdd(UserAgent);
 

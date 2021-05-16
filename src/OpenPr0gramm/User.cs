@@ -78,6 +78,15 @@ namespace OpenPr0gramm
         public string Email { get; set; }
     }
 
+#if FW
+    [Serializable]
+#endif
+    public class MarkedUser : INamedPr0grammUser
+    {
+        public string Name { get; set; }
+        public UserMark Mark { get; set; }
+    }
+
     public interface INamedPr0grammUser
     {
         string Name { get; }
