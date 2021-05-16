@@ -66,6 +66,11 @@ namespace OpenPr0gramm
 
         public string GetCurrentSessionId()
         {
+            return GetMeCookie()?.Id;
+        }
+
+        public Pr0grammMeCookie GetMeCookie()
+        {
             var container = _clientHandler?.CookieContainer;
             if (container == null)
                 return null;
@@ -74,8 +79,16 @@ namespace OpenPr0gramm
             if (meCookie == null)
                 return null;
             meCookie = WebUtility.UrlDecode(meCookie);
-            var cookie = JsonConvert.DeserializeObject<Pr0grammMeCookie>(meCookie);
-            return cookie?.Id;
+            return JsonConvert.DeserializeObject<Pr0grammMeCookie>(meCookie);
+        }
+
+        public void SetMeCookie(Pr0grammMeCookie meCookie)
+        {
+            var container = _clientHandler?.CookieContainer;
+            if (container == null)
+                throw new Exception();
+            var keks = WebUtility.UrlEncode(JsonConvert.SerializeObject(meCookie));
+            container.Add(new Cookie("me", keks, "/", ClientConstants.HostName));
         }
 
         #region IDisposable Support
@@ -104,13 +117,20 @@ namespace OpenPr0gramm
         #endregion
     }
 
-    internal class Pr0grammMeCookie
+    public class Pr0grammMeCookie
     {
+        [JsonProperty("n")]
         public string N { get; set; }
+        [JsonProperty("id")]
         public string Id { get; set; }
+        [JsonProperty("a")]
         public bool A { get; set; }
+        [JsonProperty("pp")]
         public string pp { get; set; }
+        [JsonProperty("paid")]
         public bool Paid { get; set; }
+        [JsonProperty("verified")]
+        public bool Verified { get; set; }
     }
 
     public interface IPr0grammApiClient : IDisposable
@@ -128,5 +148,7 @@ namespace OpenPr0gramm
         CookieContainer GetCookies();
         string GetCurrentNonce();
         string GetCurrentSessionId();
+        Pr0grammMeCookie GetMeCookie();
+        void SetMeCookie(Pr0grammMeCookie meCookie);
     }
 }
