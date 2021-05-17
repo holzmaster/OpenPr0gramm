@@ -82,15 +82,6 @@ namespace OpenPr0gramm
             return JsonConvert.DeserializeObject<Pr0grammMeCookie>(meCookie);
         }
 
-        public void SetMeCookie(Pr0grammMeCookie meCookie)
-        {
-            var container = _clientHandler?.CookieContainer;
-            if (container == null)
-                throw new Exception();
-            var keks = WebUtility.UrlEncode(JsonConvert.SerializeObject(meCookie));
-            container.Add(new Cookie("me", keks, "/", ClientConstants.HostName));
-        }
-
         #region IDisposable Support
 
         private bool disposedValue = false; // To detect redundant calls
@@ -149,6 +140,5 @@ namespace OpenPr0gramm
         string GetCurrentNonce();
         string GetCurrentSessionId();
         Pr0grammMeCookie GetMeCookie();
-        void SetMeCookie(Pr0grammMeCookie meCookie);
     }
 }
