@@ -4,8 +4,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-using OpenPr0gramm.Inbox.FormData;
-using OpenPr0gramm.Inbox.Response;
+using OpenPr0gramm.Endpoint.Inbox.FormData;
+using OpenPr0gramm.Endpoint.Inbox.Response;
 
 namespace OpenPr0gramm
 {

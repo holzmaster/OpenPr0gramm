@@ -1,6 +1,6 @@
 ﻿using Refit;
 
-namespace OpenPr0gramm.Inbox.FormData
+namespace OpenPr0gramm.Endpoint.Inbox.FormData
 {
     public class PrivateMessageData : PostFormData
     {

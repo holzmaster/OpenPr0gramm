@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using OpenPr0gramm.Json;
 
-namespace OpenPr0gramm.Inbox.Model
+namespace OpenPr0gramm.Endpoint.Inbox.Model
 {
 #if FW
     [Serializable]

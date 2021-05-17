@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
-using OpenPr0gramm.Inbox.FormData;
-using OpenPr0gramm.Inbox.Response;
+using OpenPr0gramm.Endpoint.Inbox.FormData;
+using OpenPr0gramm.Endpoint.Inbox.Response;
 using Refit;
 
-namespace OpenPr0gramm.Inbox
+namespace OpenPr0gramm.Endpoint.Inbox
 {
     public interface IPr0grammInboxService
     {

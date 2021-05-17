@@ -1,12 +1,10 @@
 ﻿using JsonNet.PrivateSettersContractResolvers;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using Refit;
 using System;
 using System.Net;
 using System.Net.Http;
-using System.Security.Cryptography.X509Certificates;
-using OpenPr0gramm.Inbox;
+using OpenPr0gramm.Endpoint.Inbox;
 
 namespace OpenPr0gramm
 {
@@ -69,7 +67,7 @@ namespace OpenPr0gramm
             return GetMeCookie()?.Id;
         }
 
-        public Pr0grammMeCookie GetMeCookie()
+        private Pr0grammMeCookie GetMeCookie()
         {
             var container = _clientHandler?.CookieContainer;
             if (container == null)
@@ -108,7 +106,7 @@ namespace OpenPr0gramm
         #endregion
     }
 
-    public class Pr0grammMeCookie
+    internal class Pr0grammMeCookie
     {
         [JsonProperty("n")]
         public string N { get; set; }
@@ -139,6 +137,5 @@ namespace OpenPr0gramm
         CookieContainer GetCookies();
         string GetCurrentNonce();
         string GetCurrentSessionId();
-        Pr0grammMeCookie GetMeCookie();
     }
 }
