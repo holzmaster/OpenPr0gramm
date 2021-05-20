@@ -4,6 +4,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using OpenPr0gramm.Endpoint.Inbox.FormData;
+using OpenPr0gramm.Endpoint.Inbox.Response;
 
 namespace OpenPr0gramm
 {
@@ -163,9 +165,13 @@ namespace OpenPr0gramm
         internal InboxController(IPr0grammApiClient client)
             : base(client)
         { }
-        public Task<GetMessagesResponse<InboxItem>> GetAllMessages() => Client.Inbox.GetAll();
-        public Task<GetMessagesResponse<PrivateMessage>> GetPrivateMessages() => Client.Inbox.GetPrivateMessages();
-        public Task<GetMessagesResponse<InboxItem>> GetUnreadMessages() => Client.Inbox.GetUnreadMessages();
+
+        public Task<GetInboxOverviewResponse> GetOverview() => Client.Inbox.GetOverview();
+        public Task<GetInboxCommentResponse> GetComments() => Client.Inbox.GetComments();
+        public Task<GetInboxNotificationResponse> GetNotifications() => Client.Inbox.GetNotifications();
+        public Task<GetInboxConversationResponse> GetConversations(long? older = null) => Client.Inbox.GetConversations(older);
+        public Task<GetInboxPrivateMessageResponse> GetMessages(string with, long? older = null) =>
+            Client.Inbox.GetMessages(with, older);
 
         public Task<Pr0grammResponse> SendMessage(IPr0grammUser recipient, string message)
         {

@@ -7,7 +7,7 @@ namespace OpenPr0gramm.Json
 {
     internal class SyncLogItemConverter : JsonConverter
     {
-        public override bool CanConvert(Type objectType) => objectType == typeof(DateTime);
+        public override bool CanConvert(Type objectType) => objectType == typeof(IEnumerable<SyncLogItem>);
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
             var items = new List<SyncLogItem>();

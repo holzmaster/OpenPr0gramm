@@ -1,5 +1,6 @@
 ﻿using Refit;
 using System.Threading.Tasks;
+using OpenPr0gramm.Endpoint.User.Response;
 
 namespace OpenPr0gramm
 {
@@ -19,6 +20,9 @@ namespace OpenPr0gramm
 
         [Get("/user/info")]
         Task<GetUserInfoResponse> GetInfo();
+
+        [Get("/user/name")]
+        Task<GetUserNameResponse> GetName();
 
         [Post("/user/invite")]
         Task<ChangeUserDataResponse> Invite([Body(BodySerializationMethod.UrlEncoded)]InviteData data);

@@ -1,11 +1,10 @@
 ﻿using JsonNet.PrivateSettersContractResolvers;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using Refit;
 using System;
 using System.Net;
 using System.Net.Http;
-using System.Security.Cryptography.X509Certificates;
+using OpenPr0gramm.Endpoint.Inbox;
 
 namespace OpenPr0gramm
 {
@@ -40,7 +39,7 @@ namespace OpenPr0gramm
             {
                 CookieContainer = cookieContainer ?? new CookieContainer()
             };
-            
+
             _client = new HttpClient(_clientHandler) { BaseAddress = new Uri(ClientConstants.ApiBaseUrl) };
             _client.DefaultRequestHeaders.UserAgent.ParseAdd(UserAgent);
 
@@ -65,6 +64,11 @@ namespace OpenPr0gramm
 
         public string GetCurrentSessionId()
         {
+            return GetMeCookie()?.Id;
+        }
+
+        private Pr0grammMeCookie GetMeCookie()
+        {
             var container = _clientHandler?.CookieContainer;
             if (container == null)
                 return null;
@@ -73,8 +77,7 @@ namespace OpenPr0gramm
             if (meCookie == null)
                 return null;
             meCookie = WebUtility.UrlDecode(meCookie);
-            var cookie = JsonConvert.DeserializeObject<Pr0grammMeCookie>(meCookie);
-            return cookie?.Id;
+            return JsonConvert.DeserializeObject<Pr0grammMeCookie>(meCookie);
         }
 
         #region IDisposable Support
@@ -105,11 +108,18 @@ namespace OpenPr0gramm
 
     internal class Pr0grammMeCookie
     {
+        [JsonProperty("n")]
         public string N { get; set; }
+        [JsonProperty("id")]
         public string Id { get; set; }
+        [JsonProperty("a")]
         public bool A { get; set; }
+        [JsonProperty("pp")]
         public string pp { get; set; }
+        [JsonProperty("paid")]
         public bool Paid { get; set; }
+        [JsonProperty("verified")]
+        public bool Verified { get; set; }
     }
 
     public interface IPr0grammApiClient : IDisposable
