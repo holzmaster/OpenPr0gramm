@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+using NUnit.Framework;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
@@ -120,6 +120,7 @@ namespace OpenPr0gramm.Tests
         {
             using var expectedStream = File.OpenWrite(expectedFile);
             using var cl = new HttpClient();
+            cl.DefaultRequestHeaders.UserAgent.ParseAdd("OpenPr0gramm/1.0 (ApiTests)");
 
             var stream = await cl.GetStreamAsync(url).ConfigureAwait(false);
             await stream.CopyToAsync(expectedStream).ConfigureAwait(false);
