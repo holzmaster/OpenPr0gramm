@@ -3,7 +3,7 @@ namespace OpenPr0gramm
 {
     internal static class ClientConstants
     {
-        internal const string OpenPr0grammVersion = "0.3.3"; // Also referenced in AssemblyInfo.cs
+        internal const string OpenPr0grammVersion = "1.0.0";
 
         internal const string ProtocolPrefix = "https://";
         internal const string InsecureProtocolPrefix = "http://";
