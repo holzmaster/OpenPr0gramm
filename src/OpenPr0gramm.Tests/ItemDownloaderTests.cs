@@ -37,9 +37,16 @@ namespace OpenPr0gramm.Tests
             // foreach (var item in _items)
             //     System.Console.Error.WriteLine(item.ImageUrl);
 
+            Assert.AreEqual(_items[0].Id, 1196864);
             Assert.That(_items[0].ImageUrl, Does.EndWith(".jpg"));
-            Assert.That(_items[1].ImageUrl, Does.EndWith(".jpg"));
-            Assert.That(_items[2].ImageUrl, Does.EndWith(".mp4"));
+
+            Assert.AreEqual(_items[1].Id, 1196863);
+            Assert.That(_items[1].ImageUrl, Does.EndWith(".mp4"));
+
+            Assert.AreEqual(_items[2].Id, 1196862);
+            Assert.That(_items[2].ImageUrl, Does.EndWith(".jpg"));
+
+            Assert.AreEqual(_items[10].Id, 1196850);
             Assert.That(_items[10].ImageUrl, Is.Not.Null.And.Not.Empty);
         }
 
@@ -51,13 +58,12 @@ namespace OpenPr0gramm.Tests
             var item = _items[0];
 
             var expectedFile = await DownloadExpectedFile(expected);
-            using (var dl = new ItemDownloader(DownloadKind.Thumbnail, true))
-            {
-                var actualStream = await dl.DownloadItemAsync(item);
-                var actualFile = await StreamToFile(actualStream);
 
-                CompareFiles(expectedFile, actualFile);
-            }
+            using var dl = new ItemDownloader(DownloadKind.Thumbnail, true);
+            var actualStream = await dl.DownloadItemAsync(item);
+            var actualFile = await StreamToFile(actualStream);
+
+            CompareFiles(expectedFile, actualFile);
         }
 
         [Test]
@@ -68,13 +74,12 @@ namespace OpenPr0gramm.Tests
             var item = _items[0];
 
             var expectedFile = await DownloadExpectedFile(expected);
-            using (var dl = new ItemDownloader(DownloadKind.NormalImage, true))
-            {
-                var actualStream = await dl.DownloadItemAsync(item);
-                var actualFile = await StreamToFile(actualStream);
 
-                CompareFiles(expectedFile, actualFile);
-            }
+            using var dl = new ItemDownloader(DownloadKind.NormalImage, true);
+            var actualStream = await dl.DownloadItemAsync(item);
+            var actualFile = await StreamToFile(actualStream);
+
+            CompareFiles(expectedFile, actualFile);
         }
 
         [Test]
@@ -85,13 +90,12 @@ namespace OpenPr0gramm.Tests
             var item = _items[0];
 
             var expectedFile = await DownloadExpectedFile(expected);
-            using (var dl = new ItemDownloader(DownloadKind.LargestAvailable, true))
-            {
-                var actualStream = await dl.DownloadItemAsync(item);
-                var actualFile = await StreamToFile(actualStream);
 
-                CompareFiles(expectedFile, actualFile);
-            }
+            using var dl = new ItemDownloader(DownloadKind.LargestAvailable, true);
+            var actualStream = await dl.DownloadItemAsync(item);
+            var actualFile = await StreamToFile(actualStream);
+
+            CompareFiles(expectedFile, actualFile);
         }
 
 
@@ -104,23 +108,21 @@ namespace OpenPr0gramm.Tests
             Assert.NotNull(item);
 
             var expectedFile = await DownloadExpectedFile(expected);
-            using (var dl = new ItemDownloader(DownloadKind.NormalImage, true))
-            {
-                var actualStream = await dl.DownloadItemAsync(item);
-                var actualFile = await StreamToFile(actualStream);
 
-                CompareFiles(expectedFile, actualFile);
-            }
+            using var dl = new ItemDownloader(DownloadKind.NormalImage, true);
+            var actualStream = await dl.DownloadItemAsync(item);
+            var actualFile = await StreamToFile(actualStream);
+
+            CompareFiles(expectedFile, actualFile);
         }
 
         private static async Task DownloadFile(string expectedFile, string url)
         {
-            using (var expectedStream = File.OpenWrite(expectedFile))
-            using (var cl = new HttpClient())
-            {
-                var stream = await cl.GetStreamAsync(url).ConfigureAwait(false);
-                await stream.CopyToAsync(expectedStream).ConfigureAwait(false);
-            }
+            using var expectedStream = File.OpenWrite(expectedFile);
+            using var cl = new HttpClient();
+
+            var stream = await cl.GetStreamAsync(url).ConfigureAwait(false);
+            await stream.CopyToAsync(expectedStream).ConfigureAwait(false);
         }
         private static async Task<string> DownloadExpectedFile(string url)
         {
