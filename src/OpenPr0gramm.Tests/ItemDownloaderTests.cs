@@ -53,7 +53,7 @@ namespace OpenPr0gramm.Tests
         [Test]
         public async Task ThumbnailTest()
         {
-            const string expected = "http://thumb.pr0gramm.com/2016/02/25/4d99cd2f33f62273.jpg";
+            const string expected = "http://thumb.pr0gramm.com/2016/02/25/4bb72760225fafcf.jpg";
 
             var item = _items[0];
 
@@ -69,7 +69,7 @@ namespace OpenPr0gramm.Tests
         [Test]
         public async Task ImageTest()
         {
-            const string expected = "http://img.pr0gramm.com/2016/02/25/4d99cd2f33f62273.jpg";
+            const string expected = "http://img.pr0gramm.com/2016/02/25/4bb72760225fafcf.jpg";
 
             var item = _items[0];
 
@@ -85,9 +85,9 @@ namespace OpenPr0gramm.Tests
         [Test]
         public async Task FullSizeTest()
         {
-            const string expected = "http://full.pr0gramm.com/2016/02/25/4d99cd2f33f62273.jpg";
+            const string expected = "http://full.pr0gramm.com/2016/02/25/70e033c12769af8c.jpg";
 
-            var item = _items[0];
+            var item = _items[3];
 
             var expectedFile = await DownloadExpectedFile(expected);
 
@@ -104,7 +104,7 @@ namespace OpenPr0gramm.Tests
         {
             const string expected = "http://img.pr0gramm.com/2016/02/25/956743d57e310de0.mp4";
 
-            var item = _items[2];
+            var item = _items[1];
             Assert.NotNull(item);
 
             var expectedFile = await DownloadExpectedFile(expected);
