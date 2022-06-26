@@ -1,0 +1,22 @@
+<Project>
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0</FileVersion>
+    <Authors>holzmaster</Authors>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Description>Open source .NET API for pr0gramm</Description>
+    <PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
+    <PackageIconUrl>https://pr0gramm.com/media/pr0gramm-favicon.png</PackageIconUrl>
+    <PackageLicenseUrl>https://github.com/holzmaster/OpenPr0gramm/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/holzmaster/OpenPr0gramm</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/holzmaster/OpenPr0gramm.git</RepositoryUrl>
+    <PackageTags>pr0gramm open api wrapper json http</PackageTags>
+  </PropertyGroup>
+
+</Project>
