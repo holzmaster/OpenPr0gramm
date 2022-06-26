@@ -8,7 +8,7 @@ namespace OpenPr0gramm
     // TODO test
     public class ItemDownloader : IDisposable
     {
-        private static string UserAgent = ClientConstants.GetUserAgent(nameof(ItemDownloader));
+        private static readonly string UserAgent = ClientConstants.GetUserAgent(nameof(ItemDownloader));
 
         public DownloadKind DownloadKind { get; set; }
         public bool UsingHttps { get; }
