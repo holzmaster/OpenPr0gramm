@@ -39,6 +39,9 @@ namespace OpenPr0gramm
         [Post("/user/loadpaymenttoken")]
         Task<TokenInfoResponse> LoadPaymentToken([Body(BodySerializationMethod.UrlEncoded)]TokenActionData data);
 
+        [Get("/user/loggedin")]
+        Task<LoggedInResponse> LoggedIn();
+
         [Post("/user/login")]
         Task<LogInResponse> LogIn([Body(BodySerializationMethod.UrlEncoded)]LogInData data);
 
