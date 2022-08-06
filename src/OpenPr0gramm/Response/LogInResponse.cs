@@ -8,5 +8,6 @@ namespace OpenPr0gramm
     public class LogInResponse : SuccessableResponse
     {
         public BanInfo Ban { get; private set; }
+        public string Error { get; set; }
     }
 }
