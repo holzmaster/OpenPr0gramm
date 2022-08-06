@@ -395,6 +395,8 @@ namespace OpenPr0gramm
             return Client.User.LoadPaymentToken(new TokenActionData(Client.GetCurrentNonce(), token));
         }
 
+        public Task<LoggedInResponse> LoggedIn() => Client.User.LoggedIn();
+
         public Task<LogInResponse> LogIn(string name, string password, string captchaToken, string captchaSolution)
         {
             if (string.IsNullOrWhiteSpace(name))
