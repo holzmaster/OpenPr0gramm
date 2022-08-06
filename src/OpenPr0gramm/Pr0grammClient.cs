@@ -563,9 +563,9 @@ namespace OpenPr0gramm
             return GetItemsByUser(flags, status, user.Name);
         }
         public Task<GetItemsResponse> GetItemsByUser(ItemFlags flags, ItemStatus status, string user) => GetItems(flags, status, false, null, user, null, false);
-        public Task<GetItemsResponse> GetItemsByLikes(ItemFlags flags, ItemStatus status, string likes) => GetItems(flags, status, false, null, null, likes, false);
+        public Task<GetItemsResponse> GetItemsByCollection(ItemFlags flags, ItemStatus status, string user, string collection) => GetItems(flags, status, false, null, user, collection, false);
         public Task<GetItemsResponse> GetItemsBySelf(ItemFlags flags, ItemStatus status) => GetItems(flags, status, false, null, null, null, true);
-        internal Task<GetItemsResponse> GetItems(ItemFlags flags, ItemStatus status, bool following, string tags, string user, string likes, bool self)
+        internal Task<GetItemsResponse> GetItems(ItemFlags flags, ItemStatus status, bool following, string tags, string user, string collection, bool self)
         {
             return Client.Items.GetItems(
                 flags,
@@ -573,60 +573,60 @@ namespace OpenPr0gramm
                 following ? 1 : 0,
                 string.IsNullOrEmpty(tags) ? null : tags,
                 string.IsNullOrEmpty(user) ? null : user,
-                string.IsNullOrEmpty(likes) ? null : likes,
+                string.IsNullOrEmpty(collection) ? null : collection,
                 self ? 1 : 0);
         }
 
-        public Task<GetItemsResponse> GetItemsNewer(ItemFlags flags, ItemStatus status, bool following, string tags, string user, string likes, bool self, IPr0grammItem newerThan)
+        public Task<GetItemsResponse> GetItemsNewer(ItemFlags flags, ItemStatus status, bool following, string tags, string user, string collection, bool self, IPr0grammItem newerThan)
         {
             if (newerThan == null)
                 throw new ArgumentNullException(nameof(newerThan));
-            return GetItemsNewer(flags, status, following, tags, user, likes, self, newerThan.Id);
+            return GetItemsNewer(flags, status, following, tags, user, collection, self, newerThan.Id);
         }
-        public Task<GetItemsResponse> GetItemsNewer(ItemFlags flags, ItemStatus status, bool following, string tags, string user, string likes, bool self, int newerThan)
+        public Task<GetItemsResponse> GetItemsNewer(ItemFlags flags, ItemStatus status, bool following, string tags, string user, string collection, bool self, int newerThan)
         {
             return Client.Items.GetItemsNewer(flags,
                 (int)status,
                 following ? 1 : 0,
                 string.IsNullOrEmpty(tags) ? null : tags,
                 string.IsNullOrEmpty(user) ? null : user,
-                string.IsNullOrEmpty(likes) ? null : likes,
+                string.IsNullOrEmpty(collection) ? null : collection,
                 self ? 1 : 0,
                 newerThan);
         }
 
-        public Task<GetItemsResponse> GetItemsOlder(ItemFlags flags, ItemStatus status, bool following, string tags, string user, string likes, bool self, IPr0grammItem olderThan)
+        public Task<GetItemsResponse> GetItemsOlder(ItemFlags flags, ItemStatus status, bool following, string tags, string user, string collection, bool self, IPr0grammItem olderThan)
         {
             if (olderThan == null)
                 throw new ArgumentNullException(nameof(olderThan));
-            return GetItemsOlder(flags, status, following, tags, user, likes, self, olderThan.Id);
+            return GetItemsOlder(flags, status, following, tags, user, collection, self, olderThan.Id);
         }
-        public Task<GetItemsResponse> GetItemsOlder(ItemFlags flags, ItemStatus status, bool following, string tags, string user, string likes, bool self, int olderThan)
+        public Task<GetItemsResponse> GetItemsOlder(ItemFlags flags, ItemStatus status, bool following, string tags, string user, string collection, bool self, int olderThan)
         {
             return Client.Items.GetItemsOlder(flags,
                 (int)status,
                 following ? 1 : 0,
                 string.IsNullOrEmpty(tags) ? null : tags,
                 string.IsNullOrEmpty(user) ? null : user,
-                string.IsNullOrEmpty(likes) ? null : likes,
+                string.IsNullOrEmpty(collection) ? null : collection,
                 self ? 1 : 0,
                 olderThan);
         }
 
-        public Task<GetItemsResponse> GetItemsAround(ItemFlags flags, ItemStatus status, bool following, string tags, string user, string likes, bool self, IPr0grammItem aroundItem)
+        public Task<GetItemsResponse> GetItemsAround(ItemFlags flags, ItemStatus status, bool following, string tags, string user, string collection, bool self, IPr0grammItem aroundItem)
         {
             if (aroundItem == null)
                 throw new ArgumentNullException(nameof(aroundItem));
-            return GetItemsAround(flags, status, following, tags, user, likes, self, aroundItem.Id);
+            return GetItemsAround(flags, status, following, tags, user, collection, self, aroundItem.Id);
         }
-        public Task<GetItemsResponse> GetItemsAround(ItemFlags flags, ItemStatus status, bool following, string tags, string user, string likes, bool self, int aroundId)
+        public Task<GetItemsResponse> GetItemsAround(ItemFlags flags, ItemStatus status, bool following, string tags, string user, string collection, bool self, int aroundId)
         {
             return Client.Items.GetItemsAround(flags,
                 (int)status,
                 following ? 1 : 0,
                 string.IsNullOrEmpty(tags) ? null : tags,
                 string.IsNullOrEmpty(user) ? null : user,
-                string.IsNullOrEmpty(likes) ? null : likes,
+                string.IsNullOrEmpty(collection) ? null : collection,
                 self ? 1 : 0,
                 aroundId);
         }

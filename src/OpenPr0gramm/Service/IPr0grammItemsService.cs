@@ -9,13 +9,13 @@ namespace OpenPr0gramm
         Task<Pr0grammResponse> Delete([Body(BodySerializationMethod.UrlEncoded)]DeleteItemData data);
 
         [Get("/items/get")]
-        Task<GetItemsResponse> GetItems(ItemFlags flags, int promoted, int following, string tags, string user, string likes, int self);
+        Task<GetItemsResponse> GetItems(ItemFlags flags, int promoted, int following, string tags, string user, string collection, int self);
         [Get("/items/get")]
-        Task<GetItemsResponse> GetItemsNewer(ItemFlags flags, int promoted, int following, string tags, string user, string likes, int self, int newer);
+        Task<GetItemsResponse> GetItemsNewer(ItemFlags flags, int promoted, int following, string tags, string user, string collection, int self, int newer);
         [Get("/items/get")]
-        Task<GetItemsResponse> GetItemsOlder(ItemFlags flags, int promoted, int following, string tags, string user, string likes, int self, int older);
+        Task<GetItemsResponse> GetItemsOlder(ItemFlags flags, int promoted, int following, string tags, string user, string collection, int self, int older);
         [Get("/items/get")]
-        Task<GetItemsResponse> GetItemsAround(ItemFlags flags, int promoted, int following, string tags, string user, string likes, int self, [AliasAs("id")] int aroundId);
+        Task<GetItemsResponse> GetItemsAround(ItemFlags flags, int promoted, int following, string tags, string user, string collection, int self, [AliasAs("id")] int aroundId);
 
         [Get("/items/info")]
         Task<GetItemsInfoResponse> GetInfo(int itemId);
