@@ -32,8 +32,12 @@ namespace OpenPr0gramm
         [JsonProperty(PropertyName = "bannedUntil")]
         [JsonConverter(typeof(UnixDateTimeConverter))]
         public DateTime? BannedUntil { get; set; }
+        [JsonProperty(PropertyName = "itemDelete")]
+        public long ItemDelete { get; set; }
+        [JsonProperty(PropertyName = "commentDelete")]
+        public long CommentDelete { get; set; }
 
-        public override string ToString() => $"{base.ToString()} (RegisteredSince: {RegisteredSince}, Score: {Score}, IsAdmin: {IsAdmin}, IsBanned: {IsBanned})";
+        public override string ToString() => $"{base.ToString()} (RegisteredSince: {RegisteredSince}, Score: {Score}, IsAdmin: {IsAdmin}, IsBanned: {IsBanned}, itemDelete: {ItemDelete}, commentDelete: {CommentDelete})";
     }
 
 #if FW
