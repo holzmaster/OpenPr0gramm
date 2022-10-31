@@ -1,0 +1,26 @@
+name: CD
+
+on:
+  push:
+    branches:
+    - "!*"
+    tags:
+    - "v*"
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.x
+
+    - run: dotnet restore
+    - run: dotnet build --no-restore
+    - run: dotnet test --no-build --verbosity normal
+    - run: dotnet pack -c Release src/OpenPr0gramm/OpenPr0gramm.csproj
+    - run: dotnet nuget push -k ${{ secrets.NUGET_KEY }} -s https://api.nuget.org/v3/index.json src/OpenPr0gramm/bin/Release/*.nupkg
