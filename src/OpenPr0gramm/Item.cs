@@ -17,6 +17,8 @@ namespace OpenPr0gramm
         public int Upvotes { get; set; }
         [JsonProperty(PropertyName = "down")]
         public int Downvotes { get; set; }
+        public int Width { get; set; }
+        public int Height { get; set; }
         [JsonProperty(PropertyName = "created")]
         [JsonConverter(typeof(UnixDateTimeConverter))]
         public DateTime CreatedAt { get; set; }
