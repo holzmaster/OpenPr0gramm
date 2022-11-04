@@ -41,6 +41,7 @@ namespace OpenPr0gramm
             };
 
             _client = new HttpClient(_clientHandler) { BaseAddress = new Uri(ClientConstants.ApiBaseUrl) };
+            _client.DefaultRequestVersion = HttpVersion.Version20;
             _client.DefaultRequestHeaders.UserAgent.ParseAdd(UserAgent);
 
             User = RestService.For<IPr0grammUserService>(_client, _refitSettings); // Done
