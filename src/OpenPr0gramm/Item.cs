@@ -35,6 +35,7 @@ namespace OpenPr0gramm
         public ItemFlags Flags { get; set; }
         public string User { get; set; }
         public UserMark Mark { get; set; }
+        public bool Audio { get; set; }
 
         public ItemType GetItemType()
         {
