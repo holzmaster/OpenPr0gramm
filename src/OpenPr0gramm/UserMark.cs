@@ -16,7 +16,8 @@ namespace OpenPr0gramm
         Mittelaltschwuchtel = 10,
         AltModerator = 11,
         CommunityHelfer = 12,
-        SystemBot = 13,
-        NutzerBot = 14,
+        NutzerBot = 13,
+        SystemBot = 14,
+        AltHelfer = 15
     }
 }
